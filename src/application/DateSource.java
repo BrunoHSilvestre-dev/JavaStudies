@@ -5,6 +5,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import entities.Comment;
+import entities.Post;
+
 public class DateSource {
 	public void execute() {
 		DateTimeFormatter fmt01 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -34,5 +37,30 @@ public class DateSource {
 		System.out.println(d10);
 		System.out.println(d11);
 		System.out.println(d11);
+	}
+	
+	public static void postCommentExercise(String[] args) {
+		
+		Post post1 = new Post(
+			LocalDateTime.parse("2016-06-21T13:05:44"),
+			"Travelling to New Zeland",
+			"I'm going to visit this beaultiful country",
+			12
+		)
+			.AddComment(new Comment("Have a nice trip!"))
+			.AddComment(new Comment("Wow, that's nice."));
+
+			
+		Post post2 = new Post(
+			LocalDateTime.parse("2018-07-28T23:14:19"),
+			"Good night guys!",
+			"See you tomorrow.",
+			5
+		)
+			.AddComment(new Comment("Good Night"))
+			.AddComment(new Comment("May the Force be with you"));
+		
+		System.out.print(post1 + "\n");
+		System.out.print(post2);
 	}
 }
