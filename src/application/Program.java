@@ -7,7 +7,9 @@ public class Program {
 		
 //		FilesSource.fileReader();
 		
-		FilesSource.fileWriter();
+//		FilesSource.fileWriter();
+		
+		FilesSource.manipulatingFolders();
 	}
 
 }
