@@ -107,6 +107,10 @@ public class FilesSource {
 		
 		File path = new File(strPath);
 		
+		System.out.println("getName: " + path.getName());
+		System.out.println("getParent: " + path.getParent());
+		System.out.println("getPath: " + path.getPath());
+		
 		File[] folders = path.listFiles(File::isDirectory);
 		
 		System.out.println("Folders: ");
