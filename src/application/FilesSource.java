@@ -7,7 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class FilesSource {
@@ -129,6 +130,37 @@ public class FilesSource {
 		
 		boolean success = new File(strPath + "\\subdir").mkdir();
 		System.out.println("Directory created: " + success);
+		
+		sc.close();
+	}
+	
+	public static void exercise() {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the csv path: ");
+		String csvFilePath = sc.nextLine();
+		
+		try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
+			String actualLine = br.readLine();
+			List<String[]> matrix = new ArrayList<>();
+			
+			while (actualLine != null) {
+				matrix.add(actualLine.split(","));
+				actualLine = br.readLine();
+			}
+			
+			String outputPath = "D:\\ProgramFiles\\Java\\EclipseWorkspace\\Files\\out.csv";
+			try (BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath))) {
+				for (String[] line : matrix) {
+					double totalValue = Double.parseDouble(line[1]) * Double.parseDouble(line[2]); 
+					
+					bw.write(line[0] + ',' + totalValue);
+					bw.newLine();
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		sc.close();
 	}

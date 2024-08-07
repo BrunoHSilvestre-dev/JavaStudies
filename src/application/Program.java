@@ -9,7 +9,9 @@ public class Program {
 		
 //		FilesSource.fileWriter();
 		
-		FilesSource.manipulatingFolders();
+//		FilesSource.manipulatingFolders();
+		
+		FilesSource.exercise();
 	}
 
 }
