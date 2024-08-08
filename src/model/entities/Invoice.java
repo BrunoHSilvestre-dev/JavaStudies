@@ -1,16 +1,13 @@
-package entities;
+package model.entities;
 
 public class Invoice {
 	private double basePayment;
 	private double tax;
 	private double totalPayment;
 	
-	public Invoice(double basePayment) {
+	public Invoice(double basePayment, double tax) {
 		this.basePayment = basePayment;
-		
-		double taxPercentage = (this.basePayment <= 100) ? 20 : 15;
-		this.tax = (this.basePayment * taxPercentage / 100);
-		
+		this.tax = tax;
 		this.totalPayment = this.basePayment + this.tax;
 	}
 

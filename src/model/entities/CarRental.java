@@ -1,6 +1,5 @@
-package entities;
+package model.entities;
 
-import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class CarRental {
@@ -13,20 +12,6 @@ public class CarRental {
 		this.startDate = startDate;
 		this.finishDate = finishDate;
 		this.vehicle = vehicle;
-		
-		Duration rentDuration = Duration.between(startDate, finishDate);
-		long roundedHours = (long) Math.ceil(((double) rentDuration.getSeconds() / 3600));
-        long roundedDays = (long) Math.ceil(((double) rentDuration.getSeconds() / 86400));
-        
-        double basePayment;
-        if (roundedHours <= 12) {
-			basePayment = 10 * roundedHours;
-		} 
-		else {
-			basePayment = 130 * roundedDays;
-		}
-		
-		this.invoice = new Invoice(basePayment);
 	}
 
 	public LocalDateTime getStartDate() {
@@ -43,5 +28,9 @@ public class CarRental {
 
 	public Invoice getInvoice() {
 		return invoice;
+	}
+	
+	public void setInvoice(Invoice invoice) {
+		this.invoice = invoice;
 	}
 }
