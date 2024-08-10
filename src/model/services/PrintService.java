@@ -17,6 +17,22 @@ public class PrintService<T> {
 		return list.get(0);
 	}
 	
+	public static <T extends Comparable<T>> T max(List<T> list) {
+		if (list.isEmpty()) {
+			throw new IllegalStateException("List is empty");
+		}
+		
+		T max = list.get(0);
+		for (T item : list) {
+			if (item.compareTo(max) > 0) {
+				max = item;
+			}
+		}
+		
+		return max;
+		
+	}
+	
 	public void print() {
 		System.out.println(list);
 	}
