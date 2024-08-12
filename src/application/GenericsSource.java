@@ -1,6 +1,9 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
 import model.services.PrintService;
 
 public class GenericsSource {
@@ -23,4 +26,19 @@ public class GenericsSource {
 		sc.close();
 	}
 	
+	public static void wildCardExample() {
+		
+//		List<Object> myObjs = new ArrayList<Object>();
+//		List<Integer> myNumbers = new ArrayList<Integer>();
+//		myObjs = myNumbers; // Integer is an Object, but List<Integer> is not a List<Object>
+		
+		Object obs;
+		Integer x = 10;
+		obs = x;
+	
+		List<?> myObjs = new ArrayList<Object>();
+		List<Integer> myNumbers = new ArrayList<Integer>();
+		myObjs = myNumbers; 
+	}
+
 }
