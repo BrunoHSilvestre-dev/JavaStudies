@@ -7,7 +7,9 @@ import java.time.Instant;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import entities.UserLog;
@@ -69,6 +71,28 @@ public class SetSource {
 			
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public static void map() {
+		
+		Map<String, String> cookies = new TreeMap<String, String>();
+		
+		cookies.put("username", "Maria");
+		cookies.put("email", "maria@gmail.com");
+		cookies.put("phone", "999132451");
+		
+		cookies.remove("email");
+		
+		cookies.put("phone", "999199999");
+		
+		System.out.println("Contains 'phone' key: " + cookies.containsKey("phone"));
+		System.out.println("Phone number: " + cookies.get("phone"));
+		System.out.println("Email: " + cookies.get("email"));
+		
+		System.out.println("ALL COOKIES");
+		for (String key : cookies.keySet()) {
+			System.out.println(key + ": " + cookies.get(key));
 		}
 	}
 }

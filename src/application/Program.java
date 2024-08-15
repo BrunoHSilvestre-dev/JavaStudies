@@ -7,7 +7,9 @@ public class Program {
 		
 //		SetSource.treeSet();
 		
-		SetSource.setExercise();
+//		SetSource.setExercise();
+		
+		SetSource.map();
 	}
 
 }
