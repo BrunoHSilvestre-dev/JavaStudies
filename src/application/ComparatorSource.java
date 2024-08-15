@@ -7,6 +7,11 @@ import java.util.List;
 import entities.Product;
 
 public class ComparatorSource {
+
+	public static int compareProducts(Product p1, Product p2) {
+		return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
+	}
+	
 	public static void execute() {
 		List<Product> list = new ArrayList<>();
 		
@@ -32,10 +37,14 @@ public class ComparatorSource {
 //
 //		list.sort(comp);
 
-		list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
+//		list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
 		
-		for (Product product : list) {
-			System.out.println(product);
-		}
+		list.sort(ComparatorSource::compareProducts);
+		
+//		for (Product product : list) {
+//			System.out.println(product);
+//		}
+		
+		list.forEach(System.out::println);
 	}
 }
