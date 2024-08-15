@@ -5,7 +5,9 @@ public class Program {
 	public static void main(String[] args) {
 //		SetSource.execute();
 		
-		SetSource.treeSet();
+//		SetSource.treeSet();
+		
+		SetSource.setExercise();
 	}
 
 }

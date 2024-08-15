@@ -1,9 +1,16 @@
 package application;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.time.Instant;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.TreeSet;
+
+import entities.UserLog;
 
 public class SetSource {
 
@@ -42,5 +49,26 @@ public class SetSource {
 		Set<Integer> e = new TreeSet<>(a);
 		e.removeAll(b);
 		System.out.println(e);
+	}
+	
+	public static void setExercise() {
+		try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Bruno\\eclipse-workspace\\Files\\in.txt"))) {
+			
+			Set<UserLog> set = new HashSet<>();
+			
+			String actualLine = br.readLine();
+			while (actualLine != null) {
+				String[] splittedActualLine = actualLine.split(" ");
+				
+				set.add(new UserLog(splittedActualLine[0], Instant.parse(splittedActualLine[1])));
+				
+				actualLine = br.readLine();
+			}
+			
+			System.out.println(set.size());
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
