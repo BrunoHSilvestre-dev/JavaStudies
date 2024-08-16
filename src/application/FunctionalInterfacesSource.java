@@ -1,11 +1,11 @@
 package application;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.function.Consumer;
 
 import entities.Product;
+import services.ProductService;
 
 public class FunctionalInterfacesSource {
 
@@ -14,6 +14,11 @@ public class FunctionalInterfacesSource {
 	}
 	
 	public static void execute() {
+		
+//	Predicate is a functional interface that expects you to implement a function passing a type as a parameter which returns a boolean value
+//	Consumer is a functional interface that expects you to implement a function passing a type as a parameter but with no return (via side-effect)
+//	Function is a functional interface that expects you to implment a function passing two type, one for input and one for output
+		
 //		List<Product> list = new ArrayList<>();
 //		
 //		list.add(new Product("TV", 900.0));
@@ -55,20 +60,23 @@ public class FunctionalInterfacesSource {
 		list.add(new Product("Tablet", 450.0));
 		list.add(new Product("Mouse", 50.0));
 		
-		//Predicate is a functional interface that expects you to implement a function which returns a boolean value
-		list.removeIf(x -> x.getPrice() <= 100.0 && x.getPrice() > 500.0);
+//		list.removeIf(x -> x.getPrice() <= 100.0 && x.getPrice() > 500.0);
 		
 //		list.removeIf(new ProductPredicate());
 		
 //		list.removeIf(Product::staticProductPredicate);
 		
-		list.forEach(p -> p.setPrice(p.getPrice() * 1.1));
-		
+//		list.forEach(p -> p.setPrice(p.getPrice() * 1.1));
+//		
 		list.forEach(System.out::println);
+//		
+		ProductService prodService = new ProductService();
 		
-		//Map is a stream method, that's why i converted my list to a stream
-		List<String> names = list.stream().map(p -> p.getName().toUpperCase()).collect(Collectors.toList());
+		System.out.println(prodService.filteredSum(list, p -> p.getName().charAt(0) == 'T'));
 		
-		names.forEach(System.out::println);
+//		//Map is a stream method, that's why i converted my list to a stream
+//		List<String> names = list.stream().map(p -> p.getName().toUpperCase()).collect(Collectors.toList());
+//		
+//		names.forEach(System.out::println);
 	}
 }
