@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entities.Product;
-import util.ProductPredicate;
+//import util.ProductPredicate;
 
 public class PredicateSource {
 	public static void execute() {
@@ -21,6 +21,8 @@ public class PredicateSource {
 //		list.removeIf(new ProductPredicate());
 		
 //		list.removeIf(Product::staticProductPredicate);
+		
+		list.forEach(p -> p.setPrice(p.getPrice() * 1.1));
 		
 		list.forEach(System.out::println);
 		
