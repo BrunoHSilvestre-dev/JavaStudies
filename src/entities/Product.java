@@ -29,4 +29,9 @@ public class Product {
 	public String toString() {
 		return "Product [name=" + name + ", price=" + price + "]";
 	}
+	
+//	High coupling
+//	public static boolean staticProductPredicate(Product p) {
+//		return p.getPrice() >= 100;
+//	}
 }
