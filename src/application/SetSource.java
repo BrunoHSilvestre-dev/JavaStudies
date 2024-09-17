@@ -3,7 +3,6 @@ package application;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.Instant;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -12,7 +11,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import entities.UserLog;
+import classes.UserLog;
 
 public class SetSource {
 
@@ -62,7 +61,7 @@ public class SetSource {
 			while (actualLine != null) {
 				String[] splittedActualLine = actualLine.split(" ");
 				
-				set.add(new UserLog(splittedActualLine[0], Instant.parse(splittedActualLine[1])));
+//				set.add(new UserLog(splittedActualLine[0], Instant.parse(splittedActualLine[1])));
 				
 				actualLine = br.readLine();
 			}
